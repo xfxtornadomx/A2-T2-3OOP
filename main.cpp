@@ -2,7 +2,7 @@
  * Assignment 2 T2-3 s17-18
  * Team Members:
  * 1. Ahmed Atef Adel - ID: 20230026
- * 2. Ali Mahmoud Mohamed - ID: 20230026
+ * 2. Ali Mahmoud Mohamed - ID: 20230627
  * 3. Mohamed Ayman - ID: 20231137
  *
  * Games Implemented:
@@ -28,9 +28,12 @@
 #include "BoardGame_Classes.h"
 #include "pyramidBoard.h"
 #include "connect4.h"
+#include "5x5X_O.h"
 #include "wordX_O.h"
 #include "numerical.h"
+#include "reverse.h"
 #include "ultimateTicTacToe.h"
+#include "SUS.h"
 #include <iostream>
 using namespace std;
 
@@ -148,9 +151,81 @@ int main(){
 
                 break;
             }
-            case 3:
+            case 3:{
+                int choice;
+                Player<char> *players[2];
+                X_O_5x5_Board<char> *B = new X_O_5x5_Board<char>();
+                string playerXName, player2Name;
+
+                cout << "Welcome to FCAI 5x5 X-O Game. :)\n";
+
+                cout << "Enter Player X name: ";
+                cin >> playerXName;
+                cout << "Choose Player X type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cin >> choice;
+
+                switch (choice)
+                {
+                    case 1:
+                        players[0] = new X_O_5x5_Player<char>(playerXName, 'X');
+                        break;
+                    case 2:
+                        players[0] = new X_O_5x5_Random_Player<char>('X');
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 1. Exiting the game.\n";
+                        return 1;
+                }
+
+                // Set up player 2
+                cout << "Enter Player 2 name: ";
+                cin >> player2Name;
+                cout << "Choose Player 2 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cin >> choice;
+
+                switch (choice)
+                {
+                    case 1:
+                        players[1] = new X_O_5x5_Player<char>(player2Name, 'O');
+                        break;
+                    case 2:
+                        players[1] = new X_O_5x5_Random_Player<char>('O');
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 2. Exiting the game.\n";
+                        return 1;
+                }
+
+                GameManager<char> x_o_game(B, players);
+                x_o_game.run();
+
+                int winner = B->get_winner();
+                if (winner == 1)
+                {
+                    cout << "Player X wins with the most three-in-a-row sequences!" << endl;
+                }
+                else if (winner == 2)
+                {
+                    cout << "Player O wins with the most three-in-a-row sequences!" << endl;
+                }
+                else
+                {
+                    cout << "The game is a draw!" << endl;
+                }
+
+                delete B;
+                for (int i = 0; i < 2; ++i)
+                {
+                    delete players[i];
+                }
+
 
                 break;
+            }
             case 4: {
                 int choice;
                 Player<char> *players[2];  // Player array to hold two players
@@ -283,9 +358,67 @@ int main(){
 
                 break;
             }
-            case 6:
+            case 6:{
+                int choice;
+                Player<char> *players[2];
+                boardReverse<char> *B = new boardReverse<char>();
+                string playerXName, player2Name;
+
+                cout << "Welcome to FCAI Reverse Game. :)\n";
+
+                cout << "Enter Player 1 name: ";
+                cin >> playerXName;
+                cout << "Choose Player 1 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cin >> choice;
+
+                switch (choice)
+                {
+                    case 1:
+                        players[0] = new palyerReverse<char>(playerXName, 'X');
+                        break;
+                    case 2:
+                        players[0] = new randReverse<char>('X');
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 1. Exiting the game.\n";
+                        return 1;
+                }
+
+                cout << "Enter Player 2 name: ";
+                cin >> player2Name;
+                cout << "Choose Player 2 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cin >> choice;
+
+                switch (choice)
+                {
+                    case 1:
+                        players[1] = new palyerReverse<char>(player2Name, 'O');
+                        break;
+                    case 2:
+                        players[1] = new randReverse<char>('O');
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 2. Exiting the game.\n";
+                        return 1;
+                }
+
+                GameManager<char> x_o_game(B, players);
+                x_o_game.run();
+
+                delete B;
+                for (int i = 0; i < 2; ++i)
+                {
+                    delete players[i];
+                }
+
+
 
                 break;
+            }
             case 7: {
                 int choice;
                 Player<char>* players[2];
@@ -348,9 +481,64 @@ int main(){
 
                 break;
             }
-            case 8:
+            case 8:{
+                int choice;
+                Player<char> *players[2];
+                boardSUS<char> *B = new boardSUS<char>();
+                string playerXName, player2Name;
+
+                cout << "Welcome to FCAI SUS Game. :)\n";
+                cout << "Enter Player 1 name: ";
+                cin >> playerXName;
+                cout << "Choose Player 1 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cin >> choice;
+
+                switch (choice)
+                {
+                    case 1:
+                        players[0] = new playerSUS<char>(playerXName, 'S');
+                        break;
+                    case 2:
+                        players[0] = new randSUS<char>('S');
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 1. Exiting the game.\n";
+                        return 1;
+                }
+
+                // Set up player 2
+                cout << "Enter Player 2 name: ";
+                cin >> player2Name;
+                cout << "Choose Player 2 type:\n";
+                cout << "1. Human\n";
+                cout << "2. Random Computer\n";
+                cin >> choice;
+
+                switch (choice)
+                {
+                    case 1:
+                        players[1] = new playerSUS<char>(player2Name, 'U');
+                        break;
+                    case 2:
+                        players[1] = new randSUS<char>('U');
+                        break;
+                    default:
+                        cout << "Invalid choice for Player 2. Exiting the game.\n";
+                        return 1;
+                }
+                GameManager<char> x_o_game(B, players);
+                x_o_game.run();
+                delete B;
+                for (int i = 0; i < 2; ++i)
+                {
+                    delete players[i];
+                }
+
 
                 break;
+            }
             default:
                 cout << "Invalid choice. Please try again.\n";
         }

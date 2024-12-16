@@ -13,4 +13,7 @@ add_executable(Assignment_Demo_2
         wordX_O.h
         ultimateTicTacToe.h
         numerical.h
-        connect4.h)
+        connect4.h
+        reverse.h
+        5x5X_O.h
+        SUS.h)
