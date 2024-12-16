@@ -1,3 +1,30 @@
+/*
+ * Assignment 2 T2-3 s17-18
+ * Team Members:
+ * 1. Ahmed Atef Adel - ID: 20230026
+ * 2. Ali Mahmoud Mohamed - ID: 20230026
+ * 3. Mohamed Ayman - ID: 20231137
+ *
+ * Games Implemented:
+ * - Ahmed Atef Adel:
+ *   1. Pyramid TicTacToe
+ *   2. Word TicTacToe
+ *   3. Ultimate TicTacToe
+ *   4. SUS
+ *
+ * - Ali Mahmoud Mohamed:
+ *   1. Connect 4
+ *   2. Numerical TicTacToe
+ *   3. Ultimate TicTacToe
+ *   4. SUS
+ *
+ * - Mohamed Ayman:
+ *   1. 5x5 TicTacToe
+ *   2. Misere TicTacToe
+ *   3. Ultimate TicTacToe
+ *   4. SUS
+ */
+
 #include "BoardGame_Classes.h"
 #include "pyramidBoard.h"
 #include "connect4.h"
