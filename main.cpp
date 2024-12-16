@@ -1,5 +1,6 @@
 #include "BoardGame_Classes.h"
 #include "pyramidBoard.h"
+#include "connect4.h"
 #include "wordX_O.h"
 #include "numerical.h"
 #include "ultimateTicTacToe.h"
@@ -87,9 +88,39 @@ int main(){
 
                 break;
             }
-            case 2:
+            case 2: {
+                Connect4Board<char> board;
+                C4HumanPlayer<char> player1("Player 1", 'X');
+                C4RandomPlayer<char> player2('O');
+                int turn = 0;
+                int x, y;
+                while (!board.game_is_over()) {
+                    board.display_board();
+                    if (turn % 2 == 0) {
+                        cout << "\nPlayer 1's turn (X)\n";
+                        player1.get_move(x, y, 7);
+                    } else {
+                        cout << "\nPlayer 2's turn (O)\n";
+                        player2.get_move(x, y, 7);
+                    }
+
+                    if (!board.update_board(x, y, (turn % 2 == 0 ? 'X' : 'O'))) {
+                        cout << "Invalid move. Try again.\n";
+                        continue;
+                    }
+
+                    if (board.is_win()) {
+                        board.display_board();
+                        cout << "\n" << (turn % 2 == 0 ? "Player 1 (X)" : "Player 2 (O)") << " Wins!\n";
+                        return 0;
+                    }
+                    turn++;
+                }
+                board.display_board();
+                cout << "\nGame Is Draw!\n";
 
                 break;
+            }
             case 3:
 
                 break;

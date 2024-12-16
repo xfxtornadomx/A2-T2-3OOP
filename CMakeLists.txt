@@ -12,4 +12,5 @@ add_executable(Assignment_Demo_2
         pyramidBoard.h
         wordX_O.h
         ultimateTicTacToe.h
-        numerical.h)
+        numerical.h
+        connect4.h)
