@@ -206,7 +206,7 @@ template <typename T>
 randSUS<T>::randSUS(T symbol) : RandomPlayer<T>(symbol)
 {
     this->dimension = 3;
-    this->name = "AI Player";
+    this->name = symbol;
     srand(time(nullptr));
 }
 

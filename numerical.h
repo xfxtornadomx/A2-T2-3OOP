@@ -145,7 +145,7 @@ class Odd_Numerical_Random_Player : public RandomPlayer<T> {
 public:
     Odd_Numerical_Random_Player(T symbol) : RandomPlayer<T>(symbol) {
         this->dimension = 3;  // For 3x3 board
-        this->name = "Random Computer Player";
+        this->name = symbol;
         srand(static_cast<unsigned int>(time(0)));
     }
 
@@ -167,7 +167,7 @@ class Even_Numerical_Random_Player : public RandomPlayer<T> {
 public:
     Even_Numerical_Random_Player(T symbol) : RandomPlayer<T>(symbol) {
         this->dimension = 3;  // For 3x3 board
-        this->name = "Random Computer Player";
+        this->name = symbol;
         srand(static_cast<unsigned int>(time(0)));
     }
 

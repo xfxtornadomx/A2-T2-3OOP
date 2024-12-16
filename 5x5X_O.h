@@ -251,7 +251,7 @@ template <typename T>
 X_O_5x5_Random_Player<T>::X_O_5x5_Random_Player(T symbol) : RandomPlayer<T>(symbol)
 {
     this->dimension = 5;
-    this->name = "Random Computer Player";
+    this->name = symbol;
     srand(static_cast<unsigned int>(time(0)));
 }
 

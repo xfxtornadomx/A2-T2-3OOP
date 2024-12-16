@@ -167,7 +167,7 @@ template <typename T>
 randReverse<T>::randReverse(T symbol) : RandomPlayer<T>(symbol)
 {
     this->dimension = 3;
-    this->name = "Random Computer Player";
+    this->name = symbol;
     srand(static_cast<unsigned int>(time(0)));
 }
 

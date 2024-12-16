@@ -147,6 +147,7 @@ class pyramid_X_O_Random_Player : public RandomPlayer<T> {
 public:
     pyramid_X_O_Random_Player(T symbol) : RandomPlayer<T>(symbol) {
         this->dimension = 3;
+        this->name = symbol;
         srand(static_cast<unsigned int>(time(0)));
     }
 

@@ -191,7 +191,7 @@ class wordX_O_Random_Player : public RandomPlayer<T> {
 public:
     wordX_O_Random_Player(T symbol) : RandomPlayer<T>(symbol) {
         this->dimension = 3;  // For 3x3 board
-        this->name = "Random Computer Player";
+        this->name = symbol;
         srand(static_cast<unsigned int>(time(0)));
     }
 

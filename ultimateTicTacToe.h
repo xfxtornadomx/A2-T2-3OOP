@@ -245,6 +245,7 @@ class ultimateTicTacToeRandomPlayer : public RandomPlayer<T> {
 public:
     ultimateTicTacToeRandomPlayer(T symbol) : RandomPlayer<T>(symbol) {
         srand(static_cast<unsigned int>(time(0)));
+        this->name = symbol;
     }
 
     void getmove(int& x, int& y) override {
