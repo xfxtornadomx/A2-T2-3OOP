@@ -18,7 +18,7 @@
  *   3. Ultimate TicTacToe
  *   4. SUS
  *
- * - Mohamed Ayman:
+ * - Mohamed Ayman Fayez:
  *   1. 5x5 TicTacToe
  *   2. Misere TicTacToe
  *   3. Ultimate TicTacToe
